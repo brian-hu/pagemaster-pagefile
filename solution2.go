@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"strings"
 )
 
 func SearchString(mem *Memory) (string, error) {
@@ -12,14 +13,26 @@ func SearchString(mem *Memory) (string, error) {
 		if err != nil {
 			return "", err
 		}
-		fmt.Print(string(b))
 
 		if len(window) < 5 {
 			window = append(window, b)
 		} else {
 			if string(window) == "gc24{" {
-				fmt.Println("here")
-				break
+				var sb strings.Builder
+				sb.WriteString("gc24{")
+
+				for {
+					char, err := mem.ReadAddress(memAddress)
+					if err != nil {
+						return "", err
+					}
+					sb.WriteString(char)
+
+					if string(char) == "}" {
+						return sb.String(), nil
+					}
+				}
+
 			} else {
 				window = append(window, b)[1:]
 			}
@@ -27,6 +40,4 @@ func SearchString(mem *Memory) (string, error) {
 
 		memAddress++
 	}
-
-	return "", nil
 }
