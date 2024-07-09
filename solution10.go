@@ -23,7 +23,7 @@ func SearchString(mem *Memory) (string, error) {
             }
         }
 
-        memAddress++
+        memAddress += 8
     }
 
     return "", nil
