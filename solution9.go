@@ -10,11 +10,11 @@ func SearchString(mem *Memory) (string, error) {
         if err != nil {
             return "", err
         }
+        fmt.Print(string(b))
 
         if len(window) < 5 {
             window = append(window, b)
         } else {
-            fmt.Println(string(window))
             if string(window) == "grpc{" {
                 fmt.Println("here")
                 break
