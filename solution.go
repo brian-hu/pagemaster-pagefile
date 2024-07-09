@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"unicode/utf16"
 )
 
 func SearchString(mem *Memory) (string, error) {
