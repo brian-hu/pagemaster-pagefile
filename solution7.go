@@ -14,7 +14,7 @@ func SearchString(mem *Memory) (string, error) {
 
     shorts := make([]uint16, len(bs)/2)
 	for i := 0; i < len(bs); i += 2 {
-		shorts[i/2] = (uint16(bs[i]) << 8) | uint16(bs[i+1])
+		shorts[i/2] = (uint16(bs[i+1]) << 8) | uint16(bs[i])
 	}
 
     utf8_runes := utf16.Decode(shorts)
