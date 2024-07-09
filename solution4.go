@@ -17,7 +17,7 @@ func SearchString(mem *Memory) (string, error) {
 		shorts[i/2] = (uint16(bs[i]) << 8) | uint16(bs[i+1])
 	}
 
-    utf8_runes = utf16.Decode(shorts)
+    utf8_runes := utf16.Decode(shorts)
     fmt.Println(string(utf8_runes))
 
 	//memAddress := 0
