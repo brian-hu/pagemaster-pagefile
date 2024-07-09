@@ -10,10 +10,10 @@ func SearchString(mem *Memory) (string, error) {
 	if err != nil {
 		return "", err
 	}
-    fmt.Println(bs)
+    //fmt.Println(bs)
 
     shorts := make([]uint16, len(bs)/2)
-	for i := 0; i < n; i += 2 {
+	for i := 0; i < len(bs); i += 2 {
 		shorts[i/2] = (uint16(bs[i]) << 8) | uint16(bs[i+1])
 	}
 
