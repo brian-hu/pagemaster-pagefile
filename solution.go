@@ -9,12 +9,13 @@ func SearchString(mem *Memory) (string, error) {
         return "", err
     }
     fmt.Println(b)
-    b, err = mem.ReadAddress(12312442)
-    if err != nil {
-        fmt.Println("here2")
-        return "", err
-    }
-    fmt.Println(b)
+
+    //b, err = mem.ReadAddress(12312442)
+    //if err != nil { // EOF
+        //fmt.Println("here2")
+        //return "", err
+    //}
+    //fmt.Println(b)
 
     bs, err := mem.ReadPage(0)
     if err != nil {
