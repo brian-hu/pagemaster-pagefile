@@ -3,8 +3,6 @@ package main
 import (
 	"fmt"
 
-	"golang.org/x/text/encoding/unicode"
-	"golang.org/x/text/transform"
 )
 
 func SearchString(mem *Memory) (string, error) {
@@ -12,13 +10,7 @@ func SearchString(mem *Memory) (string, error) {
 	if err != nil {
 		return "", err
 	}
-
-    decoder := unicode.UTF16(unicode.BigEndian, unicode.UseBOM).NewDecoder()
-    converted, err := decoder.Bytes(bs)
-    if err != nil {
-        return "", nil
-    }
-    fmt.Println(string(converted))
+    fmt.Println(bs)
 	//memAddress := 0
 	//var window []byte
 	//for {
