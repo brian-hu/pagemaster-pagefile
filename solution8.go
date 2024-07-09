@@ -14,6 +14,7 @@ func SearchString(mem *Memory) (string, error) {
         if len(window) < 5 {
             window = append(window, b)
         } else {
+            fmt.Println(string(window))
             if string(window) == "grpc{" {
                 fmt.Println("here")
                 break
