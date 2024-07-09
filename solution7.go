@@ -1,7 +1,6 @@
 package main
 
 import "fmt"
-import "bytes"
 
 func SearchString(mem *Memory) (string, error) {
     memAddress := 0
